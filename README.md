@@ -58,3 +58,7 @@ use on the same line:
 ng build -w & nodemon server.js --watch dist --watch server
 
 https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md
+
+## Documentation
+* [ngx-bootstrap](https://valor-software.com/ngx-bootstrap/#/)
+* [angular/cli](https://github.com/angular/angular-cli/wiki)

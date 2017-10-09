@@ -1,7 +1,7 @@
 var express = require('express'),
   app = express(),
   path = require('path'),
-  port = process.env.PORT || 80,
+  port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Task = require('./api/task/model'),
   bodyParser = require('body-parser');
@@ -18,9 +18,9 @@ var routes = require('./api/task/route');
 
 routes(app);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'dist/index.html'));
+// });
 
 app.listen(port);
 

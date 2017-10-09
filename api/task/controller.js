@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
   Task = mongoose.model('Task');
 
 exports.list = function(req, res) {
+  console.log("list", req.method, req.url, req.body);
   Task.find({}, function(err, task) {
     if (err)
       res.send(err);
@@ -12,6 +13,7 @@ exports.list = function(req, res) {
 };
 
 exports.create = function(req, res) {
+  console.log("create", req.method, req.url, req.body);
   var task = new Task(req.body);
   task.save(function(err, task) {
     if (err)
@@ -21,6 +23,7 @@ exports.create = function(req, res) {
 };
 
 exports.read = function(req, res) {
+  console.log("read", req.method, req.url, req.body);
   Task.findById(req.params.taskId, function(err, task) {
     if (err)
       res.send(err);
@@ -29,6 +32,7 @@ exports.read = function(req, res) {
 };
 
 exports.update = function(req, res) {
+  console.log("update", req.method, req.url, req.body);
   Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
     if (err)
       res.send(err);
@@ -37,7 +41,7 @@ exports.update = function(req, res) {
 };
 
 exports.delete = function(req, res) {
-
+  console.log("delete", req.method, req.url, req.body);
   Task.remove({
     _id: req.params.taskId
   }, function(err, task) {

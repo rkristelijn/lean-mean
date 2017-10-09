@@ -1,0 +1,7 @@
+{
+    "/task": {
+        "target": "http://1337-pi.local:3000",
+        "secure": false,
+        "logLevel": "debug"
+      }
+  }
