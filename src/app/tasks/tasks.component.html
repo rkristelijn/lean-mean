@@ -1,3 +1,10 @@
-<p>
-  tasks works!
-</p>
+<accordion>
+  <accordion-group *ngFor="let task of tasks" #group>
+    <div accordion-heading>
+      {{ task.name }} ({{ task.status }})
+      <i class="pull-right float-xs-right glyphicon"
+         [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+    </div>
+    This is just some content to illustrate fancy headings.
+  </accordion-group>
+</accordion>

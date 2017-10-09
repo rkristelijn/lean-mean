@@ -7,16 +7,14 @@ import { TaskService } from '../task.service';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-
+  tasks:any[];
   constructor(private ts: TaskService) { }
 
   ngOnInit() {
     this.ts.list().subscribe(data => {
-      console.log(data);
+      this.tasks = data;
+      console.log(this.tasks);
     });
-    // this.ts.create('hooi').subscribe(data => {
-    //   console.log(data);
-    // });
   }
 
 }
