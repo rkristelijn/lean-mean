@@ -10,13 +10,15 @@ import { TasksComponent } from './tasks/tasks.component';
 import { MessageComponent } from './message/message.component';
 
 import { TaskService } from './task.service';
+import { InlineEditComponent } from './inline-edit/inline-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     TasksComponent,
-    MessageComponent
+    MessageComponent,
+    InlineEditComponent
   ],
   imports: [
     BrowserModule,

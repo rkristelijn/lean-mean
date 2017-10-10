@@ -1,10 +1,18 @@
-<accordion>
-  <accordion-group *ngFor="let task of tasks" #group>
-    <div accordion-heading>
-      {{ task.name }} ({{ task.status }})
-      <i class="pull-right float-xs-right glyphicon"
-         [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+<div class="row">
+    <div class="col-xs-2"></div>
+    <div class="col-xs-8"><input #name type="text" placeholder="new task...." (blur)="create(name.value);name.value=''"></div>
+    <div class="col-xs-2"></div>
+</div>
+<div class="row" *ngFor="let task of tasks">
+    <div class="col-xs-2">
+        <input type="checkbox" name="checkbox">
     </div>
-    This is just some content to illustrate fancy headings.
-  </accordion-group>
-</accordion>
+    <div class="col-xs-8" #name contentEditable="true" (blur)="
+    task.newName=name.innerHTML; 
+    update(task);">
+{{ task.name }}
+    </div>
+    <div class="col-xs-2" (click)="delete(task)">
+      X
+    </div>
+</div>

@@ -9,12 +9,29 @@ import { TaskService } from '../task.service';
 export class TasksComponent implements OnInit {
   tasks:any[];
   constructor(private ts: TaskService) { }
-
   ngOnInit() {
+    this.getTasks();
+  }
+  getTasks() {
     this.ts.list().subscribe(data => {
       this.tasks = data;
-      console.log(this.tasks);
     });
   }
-
+  update(task: any) {
+    if(task.name !== task.newName) {
+      this.ts.update(task).subscribe(data => {
+        this.getTasks();
+      });
+    }
+  }
+  delete(task: any) {
+    this.ts.delete(task).subscribe(data => {
+      this.getTasks();
+    });
+  }
+  create(name: string) {
+    this.ts.create(name).subscribe(data => {
+      this.getTasks();
+    });
+  }
 }
