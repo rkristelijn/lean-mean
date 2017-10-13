@@ -1,3 +1,6 @@
+<div *ngFor="let alert of alerts">
+    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" [dismissible]="alert.dismissible">{{ alert.msg }}</alert>
+  </div>
 <div class="row">
     <div class="col-xs-2"></div>
     <div class="col-xs-8"><input #name type="text" placeholder="new task...." (blur)="create(name.value);name.value=''"></div>
