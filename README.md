@@ -59,7 +59,7 @@ ng build -w & nodemon server.js --watch dist --watch server
 
 https://github.com/angular/angular-cli/blob/master/docs/documentation/stories/proxy.md
 
-todo: https://www.codementor.io/godson.ukpere/creating-an-inline-edit-component-in-angular-2-nmkdlpxtq
+todo: https://blog.risingstack.com/10-best-practices-for-writing-node-js-rest-apis/
 
 ## Documentation
 * [gliphicons](https://getbootstrap.com/docs/3.3/components/)

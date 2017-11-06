@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../task.service';
 
+if (!String.prototype.trim) {
+  String.prototype.trim = function () {
+    return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+  };
+}
+
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -15,13 +21,18 @@ export class TasksComponent implements OnInit {
     this.getTasks();
   }
   getTasks() {
-    this.ts.list().subscribe(data => {
+    this.ts.list().subscribe(
+      data => {
       this.tasks = data;
       this.addAlertInfo('Tasks loaded.'); 
+    },
+    e => {
+      this.addAlertDanger(`Tasks not loaded: ${e}`)
     });
   }
   update(task: any) {
     if (task.name !== task.newName) {
+      task.newName = task.newName.trim();
       this.ts.update(task).subscribe(
         data => {
           this.getTasks();
